@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="styles.css">
+        <title>TaskTracker Pro</title>
+    </head>
+    <body>
+        <!-- header, name and light/dark mode switch -->
+        <section class="header">
+            <h2>TaskTracker Pro.</h2>
+            <div class="mode" title="switch light mode">
+                <i class="fa-solid fa-moon fa-sm"></i>
+            </div>
+        </section>
+
+
+        <!-- input box for tasks and add task button -->
+        <div class="form">
+            <input type="text" id="task" placeholder="Enter task here...">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+
+
+        <!-- pending/newly added tasks and delete buttons -->
+        <section class="pending">
+           <header>
+             <h3>Pending Tasks</h3>
+           </header>
+            <div class="pending-list" id="pending-task">
+               
+            </div>
+        </section>
+
+        <!-- completed task and delete buttons -->
+         <section class="completed">
+           <header>
+             <h3>Completed Tasks</h3>
+           </header>
+            <div class="completed-list" id="completed-task">
+            </div>
+        </section>
+
+        <script src="/main.js"></script>
+    </body>
+</html>
