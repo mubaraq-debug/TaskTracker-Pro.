@@ -32,11 +32,13 @@ function moveCompletedTask(checkbox) {
   const taskValue = checkbox.nextSibling.textContent;
   const completedTasks = document.getElementById("completed-task");
   const listItem = document.createElement("li");
-  listItem.innerHTML = taskValue;
+  listItem.innerHTML = `${taskValue} <i class="fa fa-trash-alt" style="cursor: pointer; margin-left: auto;" onclick="deleteTask(this)"></i>`;
   completedTasks.appendChild(listItem);
 
   listItem.style.listStyleType = 'none';
   listItem.style.margin = '10px';
+  listItem.style.display = 'flex';
+  listItem.style.justifyContent = 'space-between';
   listItem.style.textTransform = 'capitalize';
   const pendingTasks = document.getElementById("pending-task");
   pendingTasks.removeChild(checkbox.parentElement);
