@@ -12,7 +12,9 @@ function addTask() {
 
   const taskList = document.getElementById("pending-task");
   const listItem = document.createElement("li");
-  listItem.innerHTML = `${taskValue} <div style="display: flex; gap: 20px;"><input type='checkbox' style="height: 20px; width: 20px;" /><i class="fa fa-trash-alt" style="cursor: pointer;" onclick="deleteTask()"></i></div>`;
+  listItem.innerHTML = `<input type='checkbox' style="height: 20px; width: 20px;" onchange="moveCompletedTask(this)"/>
+  ${taskValue}
+  <i class="fa fa-trash-alt" style="cursor: pointer;"></i>`;
 
   taskList.appendChild(listItem);
   listItem.style.display = "flex";
@@ -24,8 +26,18 @@ function addTask() {
   taskInput.value = "";
 }
 
+// move pending task to completed task
 
-// delete a task
-function deleteTask(listItem) {
-  listItem.remove(); // Remove the entire listItem.
+function moveCompletedTask(checkbox) {
+  const taskValue = checkbox.nextSibling.textContent;
+  const completedTasks = document.getElementById("completed-task");
+  const listItem = document.createElement("li");
+  listItem.innerHTML = taskValue;
+  completedTasks.appendChild(listItem);
+
+  const pendingTasks = document.getElementById("pending-task");
+  pendingTasks.removeChild(checkbox.parentElement);
+
 }
+
+
