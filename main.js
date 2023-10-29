@@ -38,12 +38,15 @@ function moveCompletedTask(checkbox) {
   listItem.style.listStyleType = 'none';
   listItem.style.margin = '10px';
   listItem.style.display = 'flex';
+   listItem.style.fontSize = "18px";
   listItem.style.justifyContent = 'space-between';
   listItem.style.textTransform = 'capitalize';
   const pendingTasks = document.getElementById("pending-task");
   pendingTasks.removeChild(checkbox.parentElement);
 
 }
+
+// function to delete any task
 
 function deleteTask(i) {
   const listItem = i.parentElement;
@@ -52,4 +55,22 @@ function deleteTask(i) {
   taskList.removeChild(listItem);
 }
 
+// Function to toggle dark mode
+function toggleDarkMode() {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
+  
+  // Save the user's preference for dark mode in local storage
+  const isDarkModeEnabled = body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDarkModeEnabled);
+}
+
+// Check for dark mode preference in local storage when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+  const isDarkModeEnabled = localStorage.getItem('darkMode') === 'true';
+
+  if (isDarkModeEnabled) {
+    document.body.classList.add('dark-mode');
+  }
+});
 
